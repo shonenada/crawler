@@ -19,7 +19,7 @@ def import_string(import_name, silent=False):
 
     try:
         if '.' in import_name:
-            module, obj = import_name.rsplite('.', 1)
+            module, obj = import_name.rsplit('.', 1)
         else:
             return __import__(import_name)
 
@@ -82,7 +82,7 @@ def regex_find_named_group(pattern, content):
         return False
 
     groups = [m.groupdict() for m in iters]
-    return group
+    return groups
 
 
 def fetch_html(url):
@@ -96,5 +96,5 @@ def fetch_html(url):
         return res.content
     else:
         print('Waiting: failed to fetch %s, got status code: %d' %
-              url, res.status_code)
+              (url, res.status_code))
         return None
