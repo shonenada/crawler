@@ -10,5 +10,6 @@ setup(
     description="Simple crawler",
     zip_safe=True,
     platforms="any",
+    packages=find_packages(),
     install_requires=["requests==2.2.1"],
 )

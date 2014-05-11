@@ -98,3 +98,14 @@ def fetch_html(url):
         print('Waiting: failed to fetch %s, got status code: %d' %
               (url, res.status_code))
         return None
+
+
+def reach_limit(decrease=False):
+    """Check whether reach the limit.
+
+    :param decrease: limit counting down if it set to `True`.
+    """
+    output = global_env['limit'] is not None and global_env['limit'] <= 0
+    if global_env['limit'] is not None and decrease is True:
+        global_env['limit'] -= 1
+    return output
